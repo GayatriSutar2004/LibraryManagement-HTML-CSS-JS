@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Library Management System - Update Book</title>
+  <style>
+    /* Page & Body */
+    body {
+      background-color: #f5f7fa;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    /* Header */
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 25px 0;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 600;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      user-select: none;
+    }
+
+    /* Navigation Menu */
+    nav {
+      background-color: #34495e;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    nav ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      list-style-type: none;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    nav ul li {
+      flex: 1;
+      text-align: center;
+    }
+
+    nav ul li a {
+      display: block;
+      padding: 14px 0;
+      color: #ecf0f1;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s, color 0.3s;
+      user-select: none;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      background-color: #2980b9;
+      color: white;
+    }
+
+    /* Main container */
+    main {
+      max-width: 900px;
+      margin: 30px auto;
+      background-color: white;
+      padding: 30px 40px;
+      border-radius: 8px;
+      box-shadow: 0 8px 20px rgba(44, 62, 80, 0.1);
+    }
+
+    /* Form styles */
+    form {
+      margin-bottom: 40px;
+    }
+
+    form h2 {
+      margin-bottom: 25px;
+      color: #34495e;
+      font-weight: 700;
+      text-align: center;
+      font-size: 1.8rem;
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 6px;
+      font-weight: 600;
+      color: #34495e;
+    }
+
+    input[type="text"],
+    select {
+      width: 100%;
+      padding: 10px 12px;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: 1.8px solid #bdc3c7;
+      box-sizing: border-box;
+      transition: border-color 0.3s;
+    }
+
+    input[type="text"]:focus,
+    select:focus {
+      border-color: #2980b9;
+      outline: none;
+      box-shadow: 0 0 8px rgba(41, 128, 185, 0.3);
+    }
+
+    button {
+      margin-top: 25px;
+      width: 100%;
+      padding: 12px 0;
+      background-color: #2980b9;
+      color: white;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #1c5980;
+    }
+
+    /* Table styles */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    caption {
+      caption-side: top;
+      margin-bottom: 15px;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #34495e;
+      text-align: left;
+      user-select: none;
+    }
+
+    thead {
+      background-color: #2980b9;
+      color: white;
+    }
+
+    th, td {
+      padding: 14px 20px;
+      border-bottom: 1px solid #ecf0f1;
+      text-align: left;
+      vertical-align: middle;
+      font-size: 1rem;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: #f8fafd;
+    }
+
+    /* Action buttons */
+    td button {
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.25s ease;
+      font-size: 0.9rem;
+    }
+
+    td button:hover {
+      background-color: #1e8449;
+    }
+  </style>
+</head>
+<body>
+  <header>Library Management System</header>
+
+  <nav>
+    <ul>
+      <li><a href="library html.htm" >Home</a></li>
+      <li><a href="add book.html">Add Book</a></li>
+      <li><a href="update book.html" class="active">Update Book</a></li>
+      <li><a href="delete book.html">Delete Book</a></li>
+      <li><a href="search book.html">Search Books</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <form id="bookForm">
+      <h2>Update Book Record</h2>
+
+      <label for="title">Title:</label>
+      <input type="text" id="title" placeholder="Enter book title" required />
+
+      <label for="author">Author:</label>
+      <input type="text" id="author" placeholder="Enter author name" required />
+
+      <label for="isbn">ISBN:</label>
+      <input type="text" id="isbn" placeholder="Enter ISBN number" required />
+
+      <label for="category">Category:</label>
+      <select id="category" required>
+        <option value="" disabled selected>Select category</option>
+        <option>Fiction</option>
+        <option>Non-fiction</option>
+        <option>Science Fiction</option>
+        <option>Biography</option>
+        <option>Classic</option>
+      </select>
+
+      <label for="available">Available to Borrow:</label>
+      <select id="available" required>
+        <option value="" disabled selected>Select availability</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+
+      <button type="submit" id="submit">Add Book</button>
+    </form>
+
+    <table>
+      <caption>Books</caption>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>ISBN</th>
+          <th>Category</th>
+          <th>Available to Borrow</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="bookTableBody">
+        <tr>
+          <td>Shyamachi aai</td>
+          <td>Sane Guruji</td>
+          <td>978-0-7432-7356-5</td>
+          <td>Fiction</td>
+          <td>Yes</td>
+          <td><button onclick="editBook(this)">Update</button></td>
+        </tr>
+        <tr>
+          <td>A man called carver</td>
+          <td>Veena Gavankar</td>
+          <td>0-446-31078-6</td>
+          <td>Fiction</td>
+          <td>No</td>
+          <td><button onclick="editBook(this)">Update</button></td>
+        </tr>
+        <tr>
+          <td>The wings of fire</td>
+          <td>Abdul Kalam</td>
+          <td>978-0-451-52493-5</td>
+          <td>Science Fiction</td>
+          <td>Yes</td>
+          <td><button onclick="editBook(this)">Update</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+  <script>
+    let editRow = null; // Track the row being edited
+
+    function editBook(button) {
+      editRow = button.closest('tr');
+      document.getElementById('title').value = editRow.cells[0].textContent;
+      document.getElementById('author').value = editRow.cells[1].textContent;
+      document.getElementById('isbn').value = editRow.cells[2].textContent;
+      document.getElementById('category').value = editRow.cells[3].textContent;
+      document.getElementById('available').value = editRow.cells[4].textContent;
+      document.getElementById('submit').textContent = 'Update Book';
+    }
+
+    document.getElementById('bookForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const title = document.getElementById('title').value.trim();
+      const author = document.getElementById('author').value.trim();
+      const isbn = document.getElementById('isbn').value.trim();
+      const category = document.getElementById('category').value;
+      const available = document.getElementById('available').value;
+
+      if (!title || !author || !isbn || !category || !available) {
+        alert('Please fill in all fields');
+        return;
+      }
+
+      if (editRow) {
+        editRow.cells[0].textContent = title;
+        editRow.cells[1].textContent = author;
+        editRow.cells[2].textContent = isbn;
+        editRow.cells[3].textContent = category;
+        editRow.cells[4].textContent = available;
+        editRow = null;
+        this.reset();
+        this.querySelector('#submit').textContent = 'Add Book';
+      } else {
+        const tbody = document.getElementById('bookTableBody');
+        const newRow = tbody.insertRow();
+        newRow.innerHTML = `
+          <td>${title}</td>
+          <td>${author}</td>
+          <td>${isbn}</td>
+          <td>${category}</td>
+          <td>${available}</td>
+          <td><button onclick="editBook(this)">Update</button></td>
+        `;
+        this.reset();
+      }
+    });
+  </script>
+</body>
+</html>

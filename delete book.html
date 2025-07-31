@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Library Management System</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f5;
+    }
+
+    header {
+      background-color: #004d4d;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #006666;
+      display: flex;
+      justify-content: center;
+      padding: 0.5rem;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      padding: 20px;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    table {
+      margin: 0 auto;
+      border-collapse: collapse;
+      width: 90%;
+      max-width: 800px;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+      padding: 12px 15px;
+      border: 1px solid #ccc;
+    }
+
+    th {
+      background-color: #008080;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    button {
+      padding: 5px 10px;
+      background-color: #cc0000;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #990000;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Library Management System</h1>
+  </header>
+
+  <nav>
+    <a href="library html.htm">Home</a>
+    <a href="add book.html">Add Book</a>
+    <a href="delete book.html">Delete Book</a>
+    <a href="update book.html">Update Book</a>
+    <a href="search book.html">Search</a>
+  </nav>
+
+  <main>
+    <h2>Delete Book</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>ISBN</th>
+          <th>Category</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Shyamachi Aai</td>
+          <td>Sane Guruji</td>
+          <td>978-0-7432-7356-5</td>
+          <td>Fiction</td>
+          <td><button onclick="deleteBook(this)">Delete</button></td>
+        </tr>
+        <tr>
+          <td>A Man Called Carver</td>
+          <td>Veena Gavankar</td>
+          <td>0-446-31078-6</td>
+          <td>Fiction</td>
+          <td><button onclick="deleteBook(this)">Delete</button></td>
+        </tr>
+        <tr>
+          <td>The Wings of Fire</td>
+          <td>Abdul Kalam</td>
+          <td>978-0-451-52493-5</td>
+          <td>Science Fiction</td>
+          <td><button onclick="deleteBook(this)">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+  <script>
+    function deleteBook(button) {
+      const row = button.closest('tr');
+      row.remove();
+    }
+  </script>
+
+</body>
+</html>

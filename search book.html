@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Library Management System</title>
+  <style>
+    body {
+      background-image: url('https://i0.wp.com/stanzaliving.wpcomstaging.com/wp-content/uploads/2022/04/da4d0-library-in-delhi.jpg?fit=1000%2C748&ssl=1');
+      background-size: cover;
+      background-attachment: fixed;
+      font-family: Arial, sans-serif;
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 15px;
+      text-align: center;
+    }
+
+    nav a {
+      margin: 0 15px;
+      color: orange;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    h1 {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    form {
+      text-align: center;
+      margin: 20px;
+    }
+
+    input[type="text"] {
+      padding: 8px;
+      width: 250px;
+    }
+
+    button {
+      padding: 8px 15px;
+      background-color: orange;
+      border: none;
+      cursor: pointer;
+    }
+
+    table {
+      width: 80%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    th, td {
+      padding: 12px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+
+    th {
+      background-color: #222;
+    }
+
+    footer {
+      background-color: rgba(0, 0, 0, 0.7);
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header and Menu -->
+  <header>
+    <nav>
+      <a href="library html.htm">Home</a>
+	  <a href="add book.html">Add Book</a>
+      <a href="delete book.html">Delete Book</a>
+      <a href="update book.html">Update Book</a>
+      <a href="search book.html">Search Book</a>
+    </nav>
+  </header>
+
+  <!-- Welcome -->
+  <h1>Welcome to the Library</h1>
+
+  <!-- Search Form -->
+  <form>
+    <input type="text" placeholder="Search Books">
+    <button type="submit">Search</button>
+  </form>
+
+  <!-- Book Table -->
+  <table>
+    <tr>
+      <th>Book Title</th>
+      <th>Author</th>
+      <th>Genre</th>
+      <th>Availability</th>
+    </tr>
+    <tr>
+      <td>Shyamachi Aai</td>
+      <td>Sane Guruji</td>
+      <td>Classic</td>
+      <td>Available</td>
+    </tr>
+    <tr>
+      <td>A Man Called Carver</td>
+      <td>Veena Gavankar</td>
+      <td>Biography</td>
+      <td>Unavailable</td>
+    </tr>
+    <tr>
+      <td>Wings of Fire</td>
+      <td>Dr. A.P.J. Abdul Kalam</td>
+      <td>Autobiography</td>
+      <td>Available</td>
+    </tr>
+  </table>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Library Management | All rights reserved
+  </footer>
+
+</body>
+</html>

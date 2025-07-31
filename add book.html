@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Library Management System</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #dbeafe, #e0f2fe);
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #004d66;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    nav {
+      background-color: #006080;
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    form {
+      background-color: #e0f7fa;
+      padding: 20px;
+      border-radius: 8px;
+      width: 400px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    form h2 {
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 15px;
+      padding: 10px;
+      background-color: #00796b;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #004d40;
+    }
+
+    table {
+      width: 90%;
+      margin: 30px auto;
+      border-collapse: collapse;
+      background-color: white;
+    }
+
+    table caption {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #004d66;
+      font-weight: bold;
+    }
+
+    th, td {
+      padding: 12px;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+
+    th {
+      background-color: #0097a7;
+      color: white;
+    }
+
+    footer {
+      background-color: #004d66;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Library Management System</h1>
+  </header>
+
+  <!-- Menu Bar -->
+  <nav>
+    <a href="library html.htm">Home</a>
+    <a href="#">Add Book</a>
+    <a href="search book.html">Search Book</a>
+    <a href="update book.html">Update Book</a>
+    <a href="delete book.html">Delete Book</a>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <form id="bookForm">
+      <h2>Add Book</h2>
+      <label for="title">Title:</label>
+      <input type="text" id="title" required>
+
+      <label for="author">Author:</label>
+      <input type="text" id="author" required>
+
+      <label for="isbn">ISBN:</label>
+      <input type="text" id="isbn" required>
+
+      <label for="category">Category:</label>
+      <select id="category">
+        <option value="Fiction">Fiction</option>
+        <option value="Non-fiction">Non-fiction</option>
+        <option value="Science Fiction">Science Fiction</option>
+      </select>
+
+      <button type="submit">Add Book</button>
+    </form>
+
+    <!-- Book Table -->
+    <table id="bookTable">
+      <caption>Books</caption>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>ISBN</th>
+          <th>Category</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Existing books -->
+        <tr>
+          <td>Shyamachi Aai</td>
+          <td>Sane Guruji</td>
+          <td>978-0-7432-7356-5</td>
+          <td>Fiction</td>
+        </tr>
+        <tr>
+          <td>A Man Called Carver</td>
+          <td>Veena Gavankar</td>
+          <td>0-446-31078-6</td>
+          <td>Fiction</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>Thanks for Visiting</p>
+  </footer>
+
+  <!-- JavaScript for form handling -->
+  <script>
+    document.getElementById("bookForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // prevent page refresh
+
+      const title = document.getElementById("title").value;
+      const author = document.getElementById("author").value;
+      const isbn = document.getElementById("isbn").value;
+      const category = document.getElementById("category").value;
+
+      const table = document.getElementById("bookTable").getElementsByTagName('tbody')[0];
+      const newRow = table.insertRow();
+
+      newRow.innerHTML = `
+        <td>${title}</td>
+        <td>${author}</td>
+        <td>${isbn}</td>
+        <td>${category}</td>
+      `;
+
+      // Clear form
+      document.getElementById("bookForm").reset();
+    });
+  </script>
+
+</body>
+</html>
